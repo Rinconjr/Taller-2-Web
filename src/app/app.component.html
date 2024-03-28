@@ -1,18 +1,2 @@
-<h1 class="text-center bg-primary text-white">{{titulo_header}}</h1>
-<div>
-  <form #form="ngForm" (ngSubmit)="buscarUsuario()">
-    <label>Usuario:</label>
-    <input type="text" name="usuario" [(ngModel)]="txtUser" name="usuario">
-    <button type="submit">Buscar usuario</button>
-  </form>
-
-  <ng-container *ngIf="usuario">
-    <p>Nombre: {{usuario.firstName}}</p>
-    <p>Apellido: {{usuario.lastName}}</p>
-    <p>Edad: {{usuario.age}}</p>
-    <p>Genero: {{usuario.gender}}</p>
-    <p>Correo: {{usuario.email}}</p>
-    <p>Telefono: {{usuario.phone}}</p>
-    <p>Usuario: {{usuario.username}}</p>
-  </ng-container>
-</div>
+<h1 class="text-center bg-primary text-white py-3">{{titulo_header}}</h1>
+<app-datos-usuario></app-datos-usuario>

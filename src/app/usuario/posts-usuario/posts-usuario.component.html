@@ -1,1 +1,15 @@
-<p>posts-usuario works!</p>
+<div class="container">
+    <ng-container *ngIf="idUsuario">
+        <h2 class="text-center text-decoration-underline">Posts del Usuario</h2>
+        <div *ngFor="let publicacion of publicaciones" class="border-bottom">
+            <p class="text-center pt-3"><strong>Titulo:</strong> {{publicacion.title}}</p>
+            <p class="text-center"><strong>Id: </strong> {{publicacion.id}}</p>
+            <p class="text-center"><strong>Contenido:</strong> {{publicacion.body}}</p>
+            <p class="text-center"><strong>Reacciones:</strong> {{publicacion.reactions}}</p>
+            <div *ngFor="let comentario of comentariosPorPost[publicacion.id]">
+                <p class="text-center"><strong>Usuario:</strong></p>
+                <p class="text-center"><strong>Comentario:</strong> {{comentario.body}}</p>
+            </div>
+        </div>
+    </ng-container>
+</div>
