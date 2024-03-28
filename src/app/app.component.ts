@@ -13,6 +13,7 @@ export class AppComponent {
   ROOT_URL = "https://dummyjson.com";
 
   title = 'Taller-RXJS';
+  titulo_header = "Taller 2 Web"
 
   txtUser: string = "";
 
@@ -23,10 +24,6 @@ export class AppComponent {
   usuario: User | null = null;
 
   buscarUsuario() {
-    /*
-    this.http.get(`${this.ROOT_URL}/users/1`).subscribe((userInfo:any) => {
-      this.usuario = userInfo;})
-      */
 
     this.http.get(`${this.ROOT_URL}/users/filter?key=username&value=${this.txtUser}`).subscribe({
       next: (userInfo: any) => {
