@@ -1,34 +1,39 @@
 <div class="container">
-        <form #form="ngForm" (ngSubmit)="buscarUsuario()" class="mt-5">
-            <div class="mb-3">
-                <label class="form-label fw-bold">Usuario:</label>
-                <input type="text" name="usuario" [(ngModel)]="txtUser" placeholder="Ingrese el nombre de usuario" name="usuario" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Buscar usuario</button>
-        </form>
+    <form #form="ngForm" (ngSubmit)="buscarUsuario()" class="mt-5">
+        <div class="mb-3">
+            <label class="form-label fw-bold">Usuario:</label>
+            <input type="text" name="usuario" [(ngModel)]="txtUser" placeholder="Ingrese el nombre de usuario" name="usuario" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar usuario</button>
+    </form>
     
-        <!--Si se encuentra el usuario, mostrar sus datos-->
-        <ng-container *ngIf="usuario">
-            <h2 class="text-center text-decoration-underline pb-3">Datos del usuario</h2>
-            <div class="d-flex flex-column align-items-center">
-                <p><strong>Nombre:</strong> {{usuario.firstName}}</p>
-                <p><strong>Apellido:</strong> {{usuario.lastName}}</p>
-                <p><strong>Edad:</strong> {{usuario.age}}</p>
-                <p><strong>Genero:</strong> {{usuario.gender}}</p>
-                <p><strong>Correo:</strong> {{usuario.email}}</p>
-                <p><strong>Telefono:</strong> {{usuario.phone}}</p>
-                <p><strong>Usuario:</strong> {{usuario.username}}</p>
+    <!--Si se encuentra el usuario, mostrar sus datos-->
+    <ng-container *ngIf="usuario">
+        <h2 class="text-center text-decoration-underline">Datos del usuario</h2>
+        <div class="card bg-light border border-dark border-1">
+            <div class="card-body d-flex justify-content-center">
+                <div>
+                    <p><strong>Nombre:</strong> {{usuario.firstName}}</p>
+                    <p><strong>Apellido:</strong> {{usuario.lastName}}</p>
+                    <p><strong>Edad:</strong> {{usuario.age}}</p>
+                    <p><strong>Género:</strong> {{usuario.gender}}</p>
+                    <p><strong>Correo:</strong> {{usuario.email}}</p>
+                    <p><strong>Teléfono:</strong> {{usuario.phone}}</p>
+                    <p><strong>Usuario:</strong> {{usuario.username}}</p>
+                </div>
+                <div>
+                    <img src="{{usuario.image}}" alt="Imagen Usuario" class="rounded-circle border border-dark border-4" style="width: 250px; height: 250px;">
+                </div>
             </div>
-        </ng-container>
+        </div>
+    </ng-container>
 
-        <!--Si no se encuentra el usuario, mostrar un mensaje de error-->
-        <ng-container *ngIf="form.submitted && !usuario">
-            <div class="alert alert-danger mt-3" role="alert">
-                No se encontró el usuario
-            </div>
-        </ng-container>
-
-
+    <!--Si no se encuentra el usuario, mostrar un mensaje de error-->
+    <ng-container *ngIf="form.submitted && !usuario">
+        <div class="alert alert-danger mt-3" role="alert">
+            No se encontró el usuario
+        </div>
+    </ng-container>
 </div>
 <!--Pasar el id del usuario al componente hijo-->
 <app-posts-usuario [idUsuario]="usuario?.id"></app-posts-usuario>
