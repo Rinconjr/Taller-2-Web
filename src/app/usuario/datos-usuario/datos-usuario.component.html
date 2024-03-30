@@ -1,5 +1,5 @@
 <div class="container">
-    <form #form="ngForm" (ngSubmit)="buscarUsuario()" class="mt-5">
+    <form #form="ngForm" (ngSubmit)="buscarUsuario()" class="mt-3">
         <div class="mb-3">
             <label class="form-label fw-bold">Usuario:</label>
             <input type="text" name="usuario" [(ngModel)]="txtUser" placeholder="Ingrese el nombre de usuario" name="usuario" class="form-control">
@@ -9,8 +9,7 @@
     
     <!--Si se encuentra el usuario, mostrar sus datos-->
     <ng-container *ngIf="usuario">
-        <h2 class="text-center text-decoration-underline">Datos del usuario</h2>
-        <div class="card bg-light border border-dark border-1">
+        <div class="card bg-light border border-dark border-1 mt-3">
             <div class="card-body d-flex justify-content-center">
                 <div>
                     <p><strong>Nombre:</strong> {{usuario.firstName}}</p>
